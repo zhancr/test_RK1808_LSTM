@@ -13,7 +13,7 @@
 # 验证多模型并行
  1. 运行多个前向实例（进程），观察结果是否出现异常。当运行多个SSD模型时无异常，SSD模型与带LSTM结构的OCR识别模型一起运行，或多个LSTM识别模型同时运行时。带LSTM结构的模型会出现异常: 
  
-     ![show error](./data/1_error.jpg)
+     ![show error](./data/1_error.png)
  2. [模型结构](https://github.com/xmfbit/warpctc-caffe/blob/master/examples/warpctc_captcha/deploy.prototxt)中包含两层LSTM结构，如果只有一层LSTM，未发现异常。
  3. 初步观察只有多个模型运行时计算出现overlapping才会发生异常。如果使用一个很小的模型和带LSTM结构的OCR识别模型一起并行，异常结果出现非常频繁，基本每次都有异常。这两个公开模型就可以表现问题，这里就没提供其他测试模型。
  4. 1.4 和 1.6版本的toolkit转换出来的带LSTM结构的模型，表现相同
